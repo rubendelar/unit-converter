@@ -1,24 +1,35 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Converter from './converter';
+import Nav from './Nav';
+import Footer from './Footer';
 
 function App() {
+
+
+
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    
+    <div>
+      <Nav/>
+      <div className='container'>
+        <div className="mainContainer">
+          <div className='compact' >
+            <h1>convert</h1>
+            <Converter />
+          </div>
+        </div>
+              <div className='savedUnits'>
+                  <h4>saved</h4>
+                  <div id="append"></div>
+              </div>
+      </div>
+      <Footer/>
     </div>
+
+
+
   );
 }
 
