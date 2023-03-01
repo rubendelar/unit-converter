@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 
 export default function Converter() {
-
-
 
     const [selects, setSelects]=useState('');
     const [fromUnit,setUnit]=useState('');
     const [resultUnit,setResultUnit]=useState('');
     const [value, setValue]=useState('');
     const [result, setResult]=useState('');
+
+    useEffect(() => {
+        localStorage.setItem('dataKey', JSON.stringify(result));
+      }, [result]);
 
     const onSelectChange = (event) => {
         
@@ -115,8 +117,6 @@ export default function Converter() {
         
     }
 
-    
-    
     const saveConversion  = () => {
         const savedDiv = document.createElement('div');
         savedDiv.className = 'savedDiv';          
@@ -126,9 +126,7 @@ export default function Converter() {
 
   
      
-     
-
-
+    
     return (
         
         <div>

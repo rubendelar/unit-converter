@@ -6,9 +6,6 @@ import Footer from './Footer';
 
 function App() {
 
-
-
-  
   return (
     
     <div>
@@ -27,9 +24,6 @@ function App() {
       </div>
       <Footer/>
     </div>
-
-
-
   );
 }
 
