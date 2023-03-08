@@ -117,18 +117,32 @@ export default function Converter() {
         
     }
 
-    const saveConversion  = () => {
-        const savedDiv = document.createElement('div');
-        savedDiv.className = 'savedDiv';          
-        document.getElementById('append')[0].appendChild(savedDiv);  
-        
+    const handleClick  = (e) => {
+
+        //Desconozco procedimiento de react para crear elements
+
+        // const savedDiv = document.createElement('div');
+        // savedDiv.className = 'savedDiv';          
+        // document.getElementById('append')[0].appendChild(savedDiv);  
+
+        e.preventDefault()
+        console.log(`${value} ${fromUnit} - ${result} ${resultUnit}`)
+        fetch("http://localhost:8080/add?result=",{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            param:JSON.stringify(`${value} ${fromUnit} - ${result} ${resultUnit}`)
+
+        }).then(()=>{
+            console.log("New Conversion Added")
+        })
+    
+    
   }
 
-  
-     
+
     
     return (
-        
+        <div>
         <div>
             <div className="componentContainer">
                 <div className="converterContainer">
@@ -146,15 +160,14 @@ export default function Converter() {
                 </div>
             </div>
             <div className='favorite'>
-            <button className="emoticon" onClick={saveConversion}>♡</button> 
+            <button className="emoticon" onClick={handleClick}>♡</button> 
             
             <div>{result}  {resultUnit}</div>
             </div>
-{/* 
-            <div>
-                <h4>Saved</h4>
-                <div id="append"></div>
-            </div> */}
+
+
+
+        </div>
 
         </div>
 
